@@ -14,17 +14,26 @@
                 @foreach ($projects as $project)
                     <div class="border p-4 rounded shadow">
                         <h2 class="text-lg font-semibold">{{ $project->title }}</h2>
-                        <p class="text-sm text-gray-600">{{ $project->slug }}</p>
-                        <div class="mt-2">
-                            <a href="{{ route('admin.projects.edit', $project->slug) }}"
+
+                        <p class="text-sm text-gray-500 mt-1">{{ $project->year }}</p>
+
+                        @if ($project->stacks)
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                @foreach (explode(',', $project->stacks) as $tag)
+                                    <span
+                                        class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">{{ trim($tag) }}</span>
+                                @endforeach
+                            </div>
+                        @endif
+
+                        <div class="mt-3">
+                            <a href="{{ route('admin.projects.edit', $project) }}"
                                 class="text-blue-600 hover:underline">Edit</a>
                             <form action="{{ route('admin.projects.destroy', $project) }}" method="POST"
                                 class="inline delete-form">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="text-red-600 hover:underline ml-2 btn-delete">
-                                    Delete
-                                </button>
+                                <button type="button" class="text-red-600 hover:underline ml-2 btn-delete">Delete</button>
                             </form>
                         </div>
                     </div>

@@ -31,7 +31,7 @@
             <div class="window-body p-4 bg-gray-200 text-sm">
                 <div class="flex gap-4">
                     <div class="flex flex-col items-center gap-4 border-r border-black pr-4">
-                        <img src="{{ asset('assets/img/slavusworks.png') }}" alt="win98" class="w-full h-40" />
+                        <img src="{{ asset('storage/' . $window['img']) }}" alt="ini img" class="w-full h-40" />
                         <a class="w-full h-10" href="{{ route('biography') }}"><button
                                 class="w-full h-10 bg-white border border-black">About Me</button></a>
                         <a class="w-full h-10" href="{{ route('slavusworks') }}"><button

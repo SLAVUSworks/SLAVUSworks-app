@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('projects_windows', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->integer('year');
             $table->string('image')->nullable();
             $table->text('content')->nullable();
+            $table->text('stacks')->nullable();
             $table->timestamps();
         });
     }

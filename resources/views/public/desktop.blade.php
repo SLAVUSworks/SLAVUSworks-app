@@ -16,7 +16,7 @@
 
     @yield('window')
 
-    <div class="absolute top-2 left-2 flex flex-col gap-2 z-0">
+    <div class="absolute top-2 left-3 flex flex-col gap-2 z-0">
         <a href="{{ route('welcome') }}" onclick="openWindow('welcomeWindow')"
             class="flex flex-col items-center w-[60px] cursor-pointer select-none">
             <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/computer_explorer_cool-0.png') }}"
@@ -47,6 +47,32 @@
             <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/directory_open_file_mydocs_2k-2.png') }}"
                 class="w-8 h-8" />
             <span class="text-white text-xs text-center mt-1 drop-shadow">Projects</span>
+        </a>
+    </div>
+    <div class="absolute top-2 right-3 flex flex-col gap-2 z-0">
+        <a href="#" onclick="openWindow('projectsWindow')"
+            class="flex flex-col items-center w-[60px] cursor-pointer select-none">
+            <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/msagent-4.png') }}" class="w-8 h-8" />
+            <span class="text-white text-xs text-center mt-1 drop-shadow">Skills</span>
+        </a>
+
+        <a href="#" onclick="openWindow('projectsWindow')"
+            class="flex flex-col items-center w-[60px] cursor-pointer select-none">
+            <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/certificate-0.png') }}" class="w-8 h-8" />
+            <span class="text-white text-xs text-center mt-1 drop-shadow">Experience</span>
+        </a>
+
+        <a href="#" onclick="openWindow('projectsWindow')"
+            class="flex flex-col items-center w-[60px] cursor-pointer select-none">
+            <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/help_book_cool-4.png') }}"
+                class="w-8 h-8" />
+            <span class="text-white text-xs text-center mt-1 drop-shadow">Case<br>Studies</span>
+        </a>
+
+        <a href="#" onclick="openWindow('projectsWindow')"
+            class="flex flex-col items-center w-[60px] cursor-pointer select-none">
+            <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/desktop-2.png') }}" class="w-8 h-8" />
+            <span class="text-white text-xs text-center mt-1 drop-shadow">Blog</span>
         </a>
     </div>
 

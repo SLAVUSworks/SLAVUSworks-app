@@ -24,11 +24,16 @@ class ProjectWindowController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
+            'year' => 'required|integer',
             'image' => 'nullable|image',
             'content' => 'nullable|string',
+            'stacks' => 'nullable|string',
         ]);
 
-        $data['slug'] = Str::slug($data['title']);
+        $data['stacks'] = collect(explode(',', $request->input('stacks')))
+            ->map(fn($tag) => trim($tag))
+            ->filter()
+            ->implode(',');
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('img/projects', 'public');
@@ -47,11 +52,11 @@ class ProjectWindowController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
+            'year' => 'required|integer',
             'image' => 'nullable|image',
             'content' => 'nullable|string',
+            'stacks' => 'nullable|string',
         ]);
-
-        $data['slug'] = Str::slug($data['title']);
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('img/projects', 'public');

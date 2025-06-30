@@ -22,8 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Route::bind('project', function ($value) {
-            return ProjectsWindow::where('slug', $value)->firstOrFail();
-        });
+        //
     }
 }

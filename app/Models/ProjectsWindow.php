@@ -8,9 +8,10 @@ class ProjectsWindow extends Model
 {
     protected $fillable = [
         'title',
-        'slug',
+        'year',
         'image',
         'content',
+        'stacks',
     ];
 
     protected $casts = [

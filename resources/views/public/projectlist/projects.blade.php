@@ -26,25 +26,47 @@
         </div>
 
         <div class="p-4 overflow-auto h-[calc(100%-96px)]">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach ($windows as $project)
-                    <a href="{{ route('projectshow', $project->slug) }}"
-                        onclick="openWindow('project-{{ $project->slug }}')"
-                        class="flex flex-col items-start cursor-pointer select-none hover:bg-gray-300 p-2 rounded">
+                    <div
+                        class="flex flex-col items-start p-4 shadow-sm bg-white hover:shadow-md hover:bg-gray-100 transition-all duration-200 w-full h-full cursor-pointer select-none">
 
-                        <div class="w-full aspect-square bg-neutral-800 overflow-hidden">
+                        <div class="w-full h-48 bg-neutral-200 overflow-hidden">
                             <img src="{{ $project->image ? asset('storage/' . $project->image) : asset('assets/icons/default.png') }}"
-                                alt="{{ $project->title }}" class="w-full h-full object-cover" />
+                                alt="{{ $project->title }}" class="w-full h-full object-contain p-2" />
                         </div>
 
-                        <h2 class="text-xl font-bold text-gray-800 mt-2">
+                        <h2 class="text-base md:text-lg font-semibold text-gray-900 mt-3 truncate w-full">
                             {{ $project->title }}
                         </h2>
 
-                        <span class="text-gray-600 text-sm">202x</span> {{-- Ganti ini jika kamu punya data tahun --}}
-                    </a>
+                        @if ($project->year)
+                            <span class="text-gray-500 text-xs mt-1">{{ $project->year }}</span>
+                        @endif
+
+                        <p class="text-sm text-gray-700 mt-2 w-full break-words">
+                            {{ $project->content }}
+                        </p>
+
+                        @if ($project->stacks)
+                            <div class="border-t mt-4 pt-3 w-full">
+                                <h3 class="text-lg text-right font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                                    Stacks</h3>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    @foreach (explode(',', $project->stacks) as $tag)
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">
+                                            {{ trim($tag) }}
+                                        </span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                 @endforeach
             </div>
         </div>
+
+
+
     </div>
 @endsection
