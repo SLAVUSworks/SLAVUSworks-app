@@ -16,7 +16,7 @@
             <table class="min-w-full text-left border-collapse">
                 <thead class="bg-gray-200">
                     <tr>
-                        <th class="px-4 py-2 border">#</th>
+                        <th class="px-4 py-2 border">No</th>
                         <th class="px-4 py-2 border">Type</th>
                         <th class="px-4 py-2 border">Title</th>
                         <th class="px-4 py-2 border">Heading</th>
@@ -43,13 +43,6 @@
                             <td class="px-4 py-2 border">
                                 <a href="{{ route('admin.landing-windows.edit', $window) }}"
                                     class="text-blue-600 hover:underline mr-3">Edit</a>
-                                {{-- Optional delete --}}
-                                {{-- <form action="#" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="text-red-600 hover:underline"
-                                            onclick="return confirm('Are you sure?')">Delete</button>
-                                </form> --}}
                             </td>
                         </tr>
                     @empty

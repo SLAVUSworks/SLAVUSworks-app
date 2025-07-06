@@ -16,7 +16,6 @@
                 </select>
             </div>
 
-
             <div>
                 <label for="title" class="block font-medium">Title</label>
                 <input type="text" name="title" id="title" class="w-full border rounded px-3 py-2" required>

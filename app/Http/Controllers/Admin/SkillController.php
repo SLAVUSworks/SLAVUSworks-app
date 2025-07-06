@@ -44,4 +44,54 @@ class SkillController extends Controller
 
         return redirect()->back()->with('success', 'Skills saved.');
     }
+
+    public function edit(Skill $skill)
+    {
+        return view('admin.skills.edit', compact('skill'));
+    }
+
+    public function update(Request $request, Skill $skill)
+    {
+        $data = $request->validate([
+            'skills' => 'required|array'
+        ]);
+
+        $skill->update(['name' => $data['skills'][0]['name']]);
+
+        $this->deleteWithChildren($skill, false);
+
+        if (!empty($data['skills'][0]['children'])) {
+            foreach ($data['skills'][0]['children'] as $sub) {
+                $subSkill = Skill::create([
+                    'name' => $sub['name'],
+                    'parent_id' => $skill->id
+                ]);
+
+                if (!empty($sub['children'])) {
+                    foreach ($sub['children'] as $child) {
+                        Skill::create([
+                            'name' => $child['name'],
+                            'parent_id' => $subSkill->id
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return redirect()->route('admin.skills.index')->with('success', 'Skill updated.');
+    }
+
+    private function deleteWithChildren(Skill $skill, $deleteSelf = true)
+    {
+        foreach ($skill->children as $child) {
+            $this->deleteWithChildren($child);
+        }
+        if ($deleteSelf) $skill->delete();
+    }
+
+    public function destroy(Skill $skill)
+    {
+        $this->deleteWithChildren($skill);
+        return response()->json(['success' => true]);
+    }
 }

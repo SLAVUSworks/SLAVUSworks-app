@@ -50,13 +50,13 @@
         </a>
     </div>
     <div class="absolute top-2 right-3 flex flex-col gap-2 z-0">
-        <a href="#" onclick="openWindow('projectsWindow')"
+        <a href="{{ route('skills') }}" onclick="openWindow('projectsWindow')"
             class="flex flex-col items-center w-[60px] cursor-pointer select-none">
             <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/msagent-4.png') }}" class="w-8 h-8" />
             <span class="text-white text-xs text-center mt-1 drop-shadow">Skills</span>
         </a>
 
-        <a href="#" onclick="openWindow('projectsWindow')"
+        <a href="{{ route('experience') }}" onclick="openWindow('projectsWindow')"
             class="flex flex-col items-center w-[60px] cursor-pointer select-none">
             <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/certificate-0.png') }}" class="w-8 h-8" />
             <span class="text-white text-xs text-center mt-1 drop-shadow">Experience</span>

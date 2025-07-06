@@ -28,33 +28,38 @@
         <div class="p-4 overflow-auto h-[calc(100%-96px)]">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach ($windows as $project)
-                    <div
-                        class="flex flex-col items-start p-4 shadow-sm bg-white hover:shadow-md hover:bg-gray-100 transition-all duration-200 w-full h-full cursor-pointer select-none">
+                    <div class="flex flex-col items-start p-3 bg-gray-200 border border-gray-500 shadow-inner cursor-pointer select-none text-black font-sans text-sm"
+                        style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">
 
-                        <div class="w-full h-48 bg-neutral-200 overflow-hidden">
+                        <div class="w-full h-48 bg-gray-300 overflow-hidden border border-gray-500"
+                            style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">
                             <img src="{{ $project->image ? asset('storage/' . $project->image) : asset('assets/icons/default.png') }}"
                                 alt="{{ $project->title }}" class="w-full h-full object-contain p-2" />
                         </div>
 
-                        <h2 class="text-base md:text-lg font-semibold text-gray-900 mt-3 truncate w-full">
+                        <h2 class="text-base font-bold text-black mt-3 truncate w-full">
                             {{ $project->title }}
                         </h2>
 
                         @if ($project->year)
-                            <span class="text-gray-500 text-xs mt-1">{{ $project->year }}</span>
+                            <span class="text-gray-700 text-xs mt-1">{{ $project->year }}</span>
                         @endif
 
-                        <p class="text-sm text-gray-700 mt-2 w-full break-words">
+                        <p class="text-xs text-black my-2 w-full break-words">
                             {{ $project->content }}
                         </p>
 
+                        <div class="flex-grow"></div>
+
                         @if ($project->stacks)
-                            <div class="border-t mt-4 pt-3 w-full">
-                                <h3 class="text-lg text-right font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                            <div class="border-t pt-3 w-full border-gray-500 mt-auto">
+                                <h3 class="text-right text-sm font-bold text-gray-800 mb-2 uppercase tracking-wide">
                                     Stacks</h3>
                                 <div class="flex flex-wrap gap-2 mt-2">
                                     @foreach (explode(',', $project->stacks) as $tag)
-                                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">
+                                        <span
+                                            class="bg-white text-black border border-gray-500 text-xs px-2 py-[1px] font-medium shadow-inner"
+                                            style="box-shadow: inset -1px -1px 0 #888888, inset 1px 1px 0 #ffffff;">
                                             {{ trim($tag) }}
                                         </span>
                                     @endforeach

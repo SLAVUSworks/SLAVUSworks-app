@@ -14,6 +14,7 @@
             <div id="skills-container" class="rounded"></div>
             <button type="submit" class="bg-green-600 text-white px-4 py-1 mt-4 rounded">Save Skills</button>
         </form>
+
         @if ($skills->count())
             <div class="mt-10">
                 <h2 class="text-xl font-bold mb-4">Existing Skills</h2>
@@ -21,8 +22,17 @@
                 <ul class="space-y-4">
                     @foreach ($skills as $main)
                         <li>
-                            <div class="font-bold text-lg">{{ $main->name }}</div>
-
+                            <div class="flex items-center gap-2">
+                                <div class="font-bold text-lg">{{ $main->name }}</div>
+                                <a href="{{ route('admin.skills.edit', $main->id) }}"
+                                    class="text-sm text-blue-600 hover:underline">Edit</a>
+                                <button onclick="deleteSkill({{ $main->id }})" class="text-red-500 hover:text-red-700">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
                             @if ($main->children->count())
                                 <ul class="relative pl-6 mt-3">
                                     @foreach ($main->children as $i => $sub)
@@ -31,18 +41,35 @@
                                                 <div class="absolute left-1 top-2 h-full w-px bg-gray-500"></div>
                                             @endif
 
-                                            <div class="flex items-start gap-2">
-                                                <div class="w-2 h-2 bg-blue-500 rounded-full mt-1 shrink-0"></div>
+                                            <div class="flex items-center gap-2">
                                                 <div class="font-semibold text-base">{{ $sub->name }}</div>
+                                                <button onclick="deleteSkill({{ $sub->id }})"
+                                                    class="text-red-500 hover:text-red-700">
+                                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor"
+                                                        stroke-width="2" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
                                             </div>
+
 
                                             @if ($sub->children->count())
                                                 <ul class="pl-6 mt-2 space-y-1">
                                                     @foreach ($sub->children as $set)
                                                         <li class="flex items-start gap-2 text-sm text-gray-700">
-                                                            <span
-                                                                class="w-1.5 h-1.5 bg-gray-500 rounded-full mt-1 shrink-0"></span>
-                                                            <span>{{ $set->name }}</span>
+                                                            <div class="flex items-center gap-2">
+                                                                <span>{{ $set->name }}</span>
+                                                                <button onclick="deleteSkill({{ $set->id }})"
+                                                                    class="text-red-400 hover:text-red-600">
+                                                                    <svg class="w-3 h-3" fill="none"
+                                                                        stroke="currentColor" stroke-width="2"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                            d="M6 18L18 6M6 6l12 12" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
                                                         </li>
                                                     @endforeach
                                                 </ul>
@@ -59,6 +86,40 @@
     </div>
 
     <script>
+        function deleteSkill(id) {
+            Swal.fire({
+                title: 'Delete This Skill?',
+                text: "If you're deleting Main or Sub Skills, the descendants skills will be deleted too!.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#aaa',
+                confirmButtonText: 'Yes, delete!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`/skills/${id}`, {
+                            method: "DELETE",
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Accept': 'application/json'
+                            }
+                        }).then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                Swal.fire('Success', 'Skill Has Been Deleted!', 'success').then(() => {
+                                    location.reload();
+                                });
+                            } else {
+                                Swal.fire('Failed', 'Something Wrong.', 'error');
+                            }
+                        }).catch(() => {
+                            Swal.fire('Failed', 'Connection Lost.', 'error');
+                        });
+                }
+            });
+        }
+
         let mainIndex = 0;
 
         function addMainSkill() {
