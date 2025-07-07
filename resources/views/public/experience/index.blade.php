@@ -7,8 +7,9 @@
         $windowId = 'experienceWindow';
     @endphp
 
-    <div id="{{ $windowId }}" class="window w-full h-[calc(100%-28px)] absolute top-0 left-0 z-10" data-default="true"
-        style="display:none;">
+    <div id="{{ $windowId }}"
+        class="window w-[1000px] max-w-[95vw] h-[80vh] absolute top-[10%] left-[10%] z-10 border border-gray-700 bg-gray-100 shadow-xl"
+        data-default="true" style="display: none;">
 
         <div class="title-bar">
             <div class="title-bar-text">Experience</div>
@@ -26,7 +27,7 @@
             Experience
         </div>
 
-        <div class="p-4 px-[20em] overflow-auto h-[calc(100%-96px)]">
+        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-125px)]">
             @foreach ($experiences as $index => $experience)
                 <div class="border-r border-black pr-1">
                     <div class="flex mb-8 overflow-hidden relative px-1 py-1 text-black bg-gray-200 border border-gray-500 shadow-inner font-sans cursor-pointer"
@@ -60,6 +61,10 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="h-6 w-full bg-gray-300 border-t border-gray-500 text-xs px-4 text-black flex items-center justify-between flex-shrink-0"
+            style="box-shadow: inset -1px -1px 0 #ffffff, inset 1px 1px 0 #888888;">
+            <span class="font-bold">{{ $experiences->count() }} items</span>
         </div>
     </div>
 @endsection

@@ -7,8 +7,9 @@
         $windowId = 'skillsWindow';
     @endphp
 
-    <div id="{{ $windowId }}" class="window w-full h-[calc(100%-28px)] absolute top-0 left-0 z-10" data-default="true"
-        style="display:none;">
+    <div id="{{ $windowId }}"
+        class="window w-[1000px] max-w-[95vw] h-[80vh] absolute top-[10%] left-[10%] z-10 border border-gray-700 bg-gray-100 shadow-xl"
+        data-default="true" style="display: none;">
 
         <div class="title-bar">
             <div class="title-bar-text">Skills</div>
@@ -25,7 +26,7 @@
             Skills
         </div>
 
-        <div class="p-4 overflow-auto h-[calc(100%-96px)]">
+        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-125px)]">
             @foreach ($skills as $main)
                 <div class="mb-8">
                     <h2 class="text-base md:text-lg font-bold text-gray-800 mb-4">{{ $main->name }}</h2>
@@ -47,6 +48,10 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="h-6 w-full bg-gray-300 border-t border-gray-500 text-xs px-4 text-black flex items-center justify-between flex-shrink-0"
+            style="box-shadow: inset -1px -1px 0 #ffffff, inset 1px 1px 0 #888888;">
+            <span class="font-bold">{{ $skills->count() }} items</span>
         </div>
     </div>
 @endsection

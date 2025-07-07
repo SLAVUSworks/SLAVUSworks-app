@@ -62,7 +62,7 @@
             <span class="text-white text-xs text-center mt-1 drop-shadow">Experience</span>
         </a>
 
-        <a href="#" onclick="openWindow('projectsWindow')"
+        <a href="{{ route('caseStudies') }}" onclick="openWindow('projectsWindow')"
             class="flex flex-col items-center w-[60px] cursor-pointer select-none">
             <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/help_book_cool-4.png') }}"
                 class="w-8 h-8" />
@@ -94,9 +94,8 @@
             🕔 --
         </div>
     </div>
-
+    @stack('scripts')
     <script src="{{ asset('frontend/js/welcome_function.js') }}"></script>
-
 </body>
 
 </html>

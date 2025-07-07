@@ -25,7 +25,7 @@
             Slavus Projects List
         </div>
 
-        <div class="p-4 overflow-auto h-[calc(100%-96px)]">
+        <div class="p-4 overflow-auto h-[calc(100%-125px)]">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach ($windows as $project)
                     <div class="flex flex-col items-start p-3 bg-gray-200 border border-gray-500 shadow-inner cursor-pointer select-none text-black font-sans text-sm"
@@ -70,8 +70,9 @@
                 @endforeach
             </div>
         </div>
-
-
-
+        <div class="h-6 w-full bg-gray-300 border-t border-gray-500 text-xs px-4 text-black flex items-center justify-between flex-shrink-0"
+            style="box-shadow: inset -1px -1px 0 #ffffff, inset 1px 1px 0 #888888;">
+            <span class="font-bold">{{ $project->count() }} items</span>
+        </div>
     </div>
 @endsection

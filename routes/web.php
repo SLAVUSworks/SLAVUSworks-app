@@ -6,14 +6,20 @@ use App\Http\Controllers\Public\LandingWindowController;
 use App\Http\Controllers\Public\ProjectsWindowController;
 use App\Http\Controllers\Public\SkillController as PublicSkillController;
 use App\Http\Controllers\Public\ExperienceController as PublicExperienceController;
+use App\Http\Controllers\Public\CaseStudyController as PublicCaseStudyController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\LandingWindowController as AdminLandingWindowController;
 use App\Http\Controllers\Admin\ProjectWindowController as AdminProjectWindowController;
 use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\CaseStudyController;
 
-Route::get('/desktop', function () { return view('public.desktop');})->name('desktop');
+use App\Models\CaseStudy;
+
+Route::get('/desktop', function () {
+     return view('public.desktop');
+})->name('desktop');
 
 Route::get('/', [LandingWindowController::class, 'welcome'])->name('welcome');
 Route::get('/biography', [LandingWindowController::class, 'biography'])->name('biography');
@@ -25,6 +31,11 @@ Route::get('/projects', [ProjectsWindowController::class, 'projects'])->name('pr
 Route::get('/skills', [PublicSkillController::class, 'index'])->name('skills');
 
 Route::get('/experience', [PublicExperienceController::class, 'experience'])->name('experience');
+
+Route::get('/case-studies', [PublicCaseStudyController::class, 'index'])->name('caseStudies');
+Route::get('/case-studies/{caseStudy}/gallery', function (CaseStudy $caseStudy) {
+    return view('public.case-studies.gallery-modal', compact('caseStudy'));
+})->name('case-studies.gallery');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -46,6 +57,9 @@ Route::middleware('auth')->group(function () {
         Route::delete('skills/{skill}', [SkillController::class, 'destroy'])->name('skills.destroy');
 
         Route::resource('experience', ExperienceController::class);
+
+        Route::resource('case-studies', CaseStudyController::class);
+        Route::delete('case-studies/image/{image}', [CaseStudyController::class, 'destroyImage'])->name('case-studies.image.destroy');
     });
 });
 

@@ -37,10 +37,7 @@
                 <label class="block font-medium">Stacks</label>
                 <input id="stacks-tagify" class="w-full border rounded px-3 py-2">
                 <input type="hidden" id="stacks" name="stacks" value="{{ old('stacks') }}">
-                <p class="text-sm text-gray-500 mt-1">Pisahkan dengan koma atau tekan enter. Contoh: Laravel, Vue.js, MySQL
-                </p>
             </div>
-
 
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
         </form>
