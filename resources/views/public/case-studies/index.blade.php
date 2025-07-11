@@ -6,7 +6,7 @@
     @php $windowId = 'caseStudiesWindow'; @endphp
 
     <div id="{{ $windowId }}"
-        class="window w-[1100px] max-w-[95vw] h-[80vh] absolute top-[10%] left-[10%] z-10 border border-gray-700 bg-gray-100 shadow-xl flex flex-col"
+        class="window w-[1100px] max-w-[95vw] h-[83vh] absolute top-[10%] left-[10%] z-10 border border-gray-700 bg-gray-100 shadow-xl flex flex-col"
         data-default="true" style="display: none;">
 
         <div class="title-bar">
@@ -21,11 +21,16 @@
             </div>
         </div>
 
-        <div class="bg-red-500 text-white text-xl font-semibold px-4 py-6">Case Studies</div>
 
-        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-125px)] space-y-10 w-full box-border">
+        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-50px)] space-y-10 w-full box-border">
+            <div class="bg-blue-400 text-black p-4 border border-gray-500 shadow-inner flex flex-col font-sans text-sm"
+                style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">
+                <h1 class="text-white text-xl font-semibold">Project Based Case Studies.</h1>
+                <p class="text-white text-sm mt-2">Implementing the project in a real case scenario to solve problems and
+                    improve work efficiency.</p>
+            </div>
             @foreach ($caseStudies as $case)
-                <div class="p-4 border border-gray-500 shadow-inner font-sans text-black bg-gray-200 mb-8"
+                <div class="p-4 border border-gray-500 shadow-inner font-sans text-black bg-gray-200"
                     style="box-shadow: inset -2px -2px 0px #ffffff, inset 2px 2px 0px #888888;">
                     <div class="text-2xl font-bold text-black">{{ $case->title }}</div>
                     <div class="text-red-600 text-base">{{ $case->company }}

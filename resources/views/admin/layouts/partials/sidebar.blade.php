@@ -4,11 +4,12 @@
             <li>
                 <a href="{{ route('dashboard') }}"
                     class="flex items-center gap-3 p-1 my-1 text-gray-200 hover:bg-gray-700 rounded-lg w-full text-left 
-                               {{ request()->routeIs('dashboard') ? 'bg-gray-700' : '' }}">
+                {{ request()->routeIs('dashboard') ? 'bg-gray-700' : '' }}">
                     <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/chart1-5.png') }}"
                         class="text-gray-400 w-[24px] text-center shrink-0"></img>
                     <span class="truncate">Dashboard</span>
                 </a>
+                <h3 class="text-center py-3">Main</h3>
                 <a href="{{ route('admin.landing-windows.index') }}"
                     class="flex items-center gap-3 p-1 my-1 text-gray-200 hover:bg-gray-700 rounded-lg w-full text-left 
                                {{ request()->routeIs('admin.landing-windows*') ? 'bg-gray-700' : '' }}">
@@ -43,6 +44,14 @@
                     <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/help_book_cool-4.png') }}"
                         class="text-gray-400 w-[24px] text-center shrink-0"></img>
                     <span class="truncate">Case Studies</span>
+                </a>
+                <h3 class="text-center py-3">Technical</h3>
+                <a href="{{ url('/admin/filemanager') }}"
+                    class="flex items-center gap-3 p-1 my-1 text-gray-200 hover:bg-gray-700 rounded-lg w-full text-left 
+                               {{ request()->routeIs('/admin/filemanager') ? 'bg-gray-700' : '' }}">
+                    <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/directory_open_file_mydocs-4.png') }}"
+                        class="text-gray-400 w-[24px] text-center shrink-0"></img>
+                    <span class="truncate">File Manager</span>
                 </a>
             </li>
         </ul>

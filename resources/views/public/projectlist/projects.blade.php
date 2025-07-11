@@ -21,11 +21,12 @@
             </div>
         </div>
 
-        <div class="bg-[#2f9b9e] text-white text-xl font-semibold px-4 py-6">
-            Slavus Projects List
-        </div>
-
-        <div class="p-4 overflow-auto h-[calc(100%-125px)]">
+        <div class="p-4 overflow-auto h-[calc(100%-50px)]">
+            <div class="bg-blue-400 text-black mb-4 p-4 border border-gray-500 shadow-inner flex flex-col font-sans text-sm"
+                style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">
+                <h1 class="text-white text-xl font-semibold">Projects Portofolio.</h1>
+                <p class="text-white text-sm mt-2">Here are the projects I have built to serve digital solution users.</p>
+            </div>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach ($windows as $project)
                     <div class="flex flex-col items-start p-3 bg-gray-200 border border-gray-500 shadow-inner cursor-pointer select-none text-black font-sans text-sm"
@@ -72,7 +73,7 @@
         </div>
         <div class="h-6 w-full bg-gray-300 border-t border-gray-500 text-xs px-4 text-black flex items-center justify-between flex-shrink-0"
             style="box-shadow: inset -1px -1px 0 #ffffff, inset 1px 1px 0 #888888;">
-            <span class="font-bold">{{ $project->count() }} items</span>
+            <span class="font-bold">{{ $windows->count() }} items</span>
         </div>
     </div>
 @endsection

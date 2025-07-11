@@ -22,13 +22,14 @@
             </div>
         </div>
 
-        <div class="bg-red-500 text-white text-xl font-semibold px-4 py-6">
-            Skills
-        </div>
-
-        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-125px)]">
+        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-50px)]">
+            <div class="bg-blue-400 text-black mb-4 p-4 border border-gray-500 shadow-inner flex flex-col font-sans text-sm"
+                style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">
+                <h1 class="text-white text-xl font-semibold">Skills</h1>
+                <p class="text-white text-sm mt-2">Here are the skills I am proficient in.</p>
+            </div>
             @foreach ($skills as $main)
-                <div class="mb-8">
+                <div class="mb-4">
                     <h2 class="text-base md:text-lg font-bold text-gray-800 mb-4">{{ $main->name }}</h2>
 
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

@@ -4,6 +4,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1 class="text-2xl font-bold mb-4">Selamat datang di Dashboard</h1>
-    {{-- Konten dashboard --}}
+    <h1 class="text-2xl font-bold mb-4">Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+    </h1>
 @endsection

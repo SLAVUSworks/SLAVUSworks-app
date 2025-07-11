@@ -98,7 +98,7 @@
                 cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`/skills/${id}`, {
+                    fetch(`/admin/skills/${id}`, {
                             method: "DELETE",
                             headers: {
                                 'X-CSRF-TOKEN': '{{ csrf_token() }}',

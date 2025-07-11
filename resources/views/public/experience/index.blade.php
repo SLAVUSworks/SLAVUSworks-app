@@ -8,7 +8,7 @@
     @endphp
 
     <div id="{{ $windowId }}"
-        class="window w-[1000px] max-w-[95vw] h-[80vh] absolute top-[10%] left-[10%] z-10 border border-gray-700 bg-gray-100 shadow-xl"
+        class="window w-[1000px] max-w-[95vw] h-[83vh] absolute top-[5%] left-[10%] z-10 border border-gray-700 bg-gray-100 shadow-xl"
         data-default="true" style="display: none;">
 
         <div class="title-bar">
@@ -23,14 +23,17 @@
             </div>
         </div>
 
-        <div class="bg-blue-400 text-white text-xl font-semibold px-4 py-6">
-            Experience
-        </div>
 
-        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-125px)]">
+        <div class="p-4 overflow-auto bg-[#c0c0c0] h-[calc(100%-50px)]">
+            <div class="bg-blue-400 text-black mb-4 p-4 border border-gray-500 shadow-inner flex flex-col font-sans text-sm"
+                style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">
+                <h1 class="text-white text-xl font-semibold">Real World Experience Showcase.</h1>
+                <p class="text-white text-sm mt-2">A tech enthusiast with over 6 years of experience in hardware, web
+                    development, community leadership, and entrepreneurship.</p>
+            </div>
             @foreach ($experiences as $index => $experience)
-                <div class="border-r border-black pr-1">
-                    <div class="flex mb-8 overflow-hidden relative px-1 py-1 text-black bg-gray-200 border border-gray-500 shadow-inner font-sans cursor-pointer"
+                <div class="border-r border-black">
+                    <div class="flex mb-4 overflow-hidden relative px-1 py-1 text-black bg-gray-200 border border-gray-500 shadow-inner font-sans cursor-pointer"
                         style="box-shadow: inset -2px -2px 0px #ffffff, inset 2px 2px 0px #888888;">
 
                         <div class="relative w-20 bg-blue-300 text-black text-3xl font-bold flex items-center justify-center z-10 border-r border-gray-500"

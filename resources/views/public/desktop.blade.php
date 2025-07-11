@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title', 'Desktop')</title>
 
+    <link rel="icon" href="{{ asset('assets/img/Comms-header.png') }}" type="image/x-icon">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/98.css" />
     <link rel="stylesheet" href="{{ asset('frontend/css/root.css') }}">
@@ -38,7 +40,8 @@
 
         <a href="{{ route('contact') }}" onclick="openWindow('projectsWindow')"
             class="flex flex-col items-center w-[60px] cursor-pointer select-none">
-            <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/write_card_phone.png') }}" class="w-8 h-8" />
+            <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/write_card_phone.png') }}"
+                class="w-8 h-8" />
             <span class="text-white text-xs text-center mt-1 drop-shadow">Contact</span>
         </a>
 
@@ -69,11 +72,13 @@
             <span class="text-white text-xs text-center mt-1 drop-shadow">Case<br>Studies</span>
         </a>
 
-        <a href="#" onclick="openWindow('projectsWindow')"
+        {{-- Blog's Temporary Unavailable --}}
+        <a href="#" onclick="showErrorDialog()"
             class="flex flex-col items-center w-[60px] cursor-pointer select-none">
             <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/desktop-2.png') }}" class="w-8 h-8" />
             <span class="text-white text-xs text-center mt-1 drop-shadow">Blog</span>
         </a>
+
     </div>
 
     <div
@@ -94,6 +99,42 @@
             🕔 --
         </div>
     </div>
+
+    {{-- Temporary Error Message --}}
+    <div id="win98Error"
+        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden border border-gray-700 shadow-xl">
+        <div class="w-[400px] bg-gray-200 border border-gray-700 shadow-lg">
+            <div class="title-bar">
+                <div class="title-bar-text">Error</div>
+                <div class="title-bar-controls px-1">
+                    <button class="bg-white text-black border border-gray-500" aria-label="Close"
+                        onclick="hideErrorDialog()"></button>
+                </div>
+            </div>
+
+            <div class="p-4 flex items-start gap-3">
+                <img src="{{ asset('assets/img/win98_icons/windows98-icons/png/msg_error-0.png') }}"
+                    class="w-6 h-6 mt-1" alt="Error Icon" />
+                <div class="text-sm text-black">
+                    This feature is temporary unavailable.
+                </div>
+            </div>
+
+            <div class="px-4 pb-3 flex justify-end">
+                <button onclick="hideErrorDialog()" class="px-3 py-1 bg-white border border-black text-sm">OK</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showErrorDialog() {
+            document.getElementById('win98Error').classList.remove('hidden');
+        }
+
+        function hideErrorDialog() {
+            document.getElementById('win98Error').classList.add('hidden');
+        }
+    </script>
+
     @stack('scripts')
     <script src="{{ asset('frontend/js/welcome_function.js') }}"></script>
 </body>
