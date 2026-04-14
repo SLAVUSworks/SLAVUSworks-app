@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
+            'name' => 'Agha Slavus',
+            'email' => 'miharilabs@localhost',
             'email_verified_at' => Carbon::now(),
-            'password' => Hash::make('password'), // Default password: password
+            'password' => Hash::make('oymhri0101Mahiro'),
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),

@@ -96,7 +96,7 @@
 
         <div id="clock"
             class="bg-white border border-gray-400 mx-2 px-2 h-full text-xs shadow-inner flex items-center">
-            🕔 --
+            -- GMT+7
         </div>
     </div>
 

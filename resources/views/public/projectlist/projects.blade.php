@@ -27,7 +27,7 @@
                 <h1 class="text-white text-xl font-semibold">Projects Portofolio.</h1>
                 <p class="text-white text-sm mt-2">Here are the projects I have built to serve digital solution users.</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @foreach ($windows as $project)
                     <div class="flex flex-col items-start p-3 bg-gray-200 border border-gray-500 shadow-inner cursor-pointer select-none text-black font-sans text-sm"
                         style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">

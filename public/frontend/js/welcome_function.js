@@ -76,7 +76,7 @@ function updateClock() {
     const hours = now.getHours().toString().padStart(2, "0");
     const minutes = now.getMinutes().toString().padStart(2, "0");
 
-    clock.innerHTML = `🕔 ${hours}:${minutes}`;
+    clock.innerHTML = `${hours}:${minutes} GMT+7`;
 }
 
 setInterval(updateClock, 1000);
