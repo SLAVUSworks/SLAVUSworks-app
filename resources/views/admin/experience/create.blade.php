@@ -21,6 +21,12 @@
             </div>
 
             <div class="mb-4">
+                <label class="block font-medium">Category</label>
+                <input type="text" name="category" class="w-full border rounded px-3 py-2"
+                    value="{{ old('category') }}" required>
+            </div>
+
+            <div class="mb-4">
                 <label class="block font-medium">Job Position (optional)</label>
                 <input type="text" name="job_position" class="w-full border rounded px-3 py-2"
                     value="{{ old('job_position') }}">

@@ -18,8 +18,8 @@
                     <tr>
                         <th class="border px-4 py-2">No</th>
                         <th class="border px-4 py-2">Job Title</th>
+                        <th class="border px-4 py-2">Category</th>
                         <th class="border px-4 py-2">Company</th>
-                        <th class="border px-4 py-2">Position</th>
                         <th class="border px-4 py-2">Start Date</th>
                         <th class="border px-4 py-2">End Date</th>
                         <th class="border px-4 py-2">Action</th>
@@ -30,8 +30,8 @@
                         <tr>
                             <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                             <td class="border px-4 py-2">{{ $experience->job_title }}</td>
+                            <td class="border px-4 py-2">{{ $experience->category }}</td>
                             <td class="border px-4 py-2">{{ $experience->company_name }}</td>
-                            <td class="border px-4 py-2">{{ $experience->job_position ?? '-' }}</td>
                             <td class="border px-4 py-2">{{ $experience->start_date }}</td>
                             <td class="border px-4 py-2">
                                 {{ $experience->end_date ?? 'Present' }}

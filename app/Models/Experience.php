@@ -12,6 +12,7 @@ class Experience extends Model
         'start_date',
         'end_date',
         'job_title',
+        'category',
         'company_name',
         'job_position',
         'description',

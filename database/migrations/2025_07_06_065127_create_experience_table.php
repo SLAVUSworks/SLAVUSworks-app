@@ -16,6 +16,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
             $table->string('job_title');
+            $table->string('category');
             $table->string('company_name');
             $table->string('job_position')->nullable();
             $table->text('description')->nullable();
