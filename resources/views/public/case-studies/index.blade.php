@@ -10,7 +10,7 @@
         data-default="true" style="display: none;">
 
         <div class="title-bar">
-            <div class="title-bar-text">Case'S</div>
+            <div class="title-bar-text">Case Studies</div>
             <div class="title-bar-controls">
                 <button class="bg-white text-black border border-gray-500" aria-label="Minimize"
                     onclick="minimizeWindow('{{ $windowId }}')"></button>
@@ -41,30 +41,40 @@
                         <div class="md:col-span-2 bg-gray-100 text-red-600 p-2 sm:p-3"
                             style="box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #888888;">
                             <h3 class="font-bold text-lg sm:text-xl mb-2">Core Problem</h3>
-                            <p class="text-black text-sm sm:text-lg">{{ $case->core_problem }}</p>
+                            <div class="text-black text-sm sm:text-lg [&>ul]:list-disc [&>ul]:pl-6 [&>ul>li]:mb-2">
+                                {!! $case->core_problem !!}
+                            </div>
                         </div>
 
-                        <div class="bg-gray-100 text-red-600 p-2 sm:p-3"
+                        <div class="bg-gray-100 p-3 sm:p-4"
                             style="box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #888888;">
-                            <h3 class="font-bold text-lg sm:text-xl mb-2">Technologies</h3>
-                            <div class="text-black text-xs space-x-1">
+                            <h3 class="font-bold text-lg sm:text-xl text-yellow-600 mb-3">
+                                Technologies
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
                                 @foreach (explode(',', $case->technologies_used ?? '') as $stack)
                                     <span
-                                        class="inline-block border border-black bg-white px-2 py-1 mb-1 text-xs">{{ trim($stack) }}</span>
+                                        class="inline-flex items-center border border-gray-700 bg-white px-3 py-1 text-xs sm:text-sm text-black shadow-sm hover:bg-gray-50 transition">
+                                        {{ trim($stack) }}
+                                    </span>
                                 @endforeach
                             </div>
                         </div>
 
-                        <div class="md:col-span-2 bg-gray-100 text-red-600 p-2 sm:p-3"
+                        <div class="md:col-span-2 bg-gray-100 text-green-600 p-2 sm:p-3"
                             style="box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #888888;">
                             <h3 class="font-bold text-lg sm:text-xl mb-2">Solutions</h3>
-                            <p class="text-black text-sm sm:text-lg">{{ $case->solution }}</p>
+                            <div class="text-black text-sm sm:text-lg [&>ul]:list-disc [&>ul]:pl-6 [&>ul>li]:mb-2">
+                                {!! $case->solution !!}
+                            </div>
                         </div>
 
-                        <div class="bg-gray-100 text-red-600 p-2 sm:p-3 flex flex-col justify-between"
+                        <div class="bg-gray-100 text-blue-600 p-2 sm:p-3 flex flex-col justify-between"
                             style="box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #888888;">
                             <h3 class="font-bold text-lg sm:text-xl mb-2">Results</h3>
-                            <p class="text-black text-sm sm:text-lg whitespace-pre-line">{{ $case->results ?? '-' }}</p>
+                            <div class="text-black text-sm sm:text-lg [&>ul]:list-disc [&>ul]:pl-6 [&>ul>li]:mb-2">
+                                {!! $case->results ?? '-' !!}
+                            </div>
                         </div>
                     </div>
 

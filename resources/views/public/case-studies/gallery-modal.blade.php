@@ -3,7 +3,7 @@
 @endphp
 
 <div id="{{ $windowId }}"
-    class="window w-full md:w-[720px] bg-[#c0c0c0] max-w-[95vw] mx-auto shadow-xl absolute md:top-[10%] md:left-[10%] top-12 left-0 border border-gray-700 z-10"
+    class="window w-full md:w-[720px] bg-[#c0c0c0] max-w-full mx-auto shadow-xl absolute md:top-[10%] md:left-[10%] top-12 left-0 border border-gray-700 z-10"
     data-default="true">
 
     <div class="title-bar flex items-center justify-between px-2 bg-blue-700 text-white h-6">

@@ -28,7 +28,7 @@
             <div class="bg-blue-400 text-black mb-4 p-3 sm:p-4 border border-gray-500 shadow-inner flex flex-col font-sans text-sm"
                 style="box-shadow: inset -2px -2px 0 #ffffff, inset 2px 2px 0 #888888;">
                 <h1 class="text-white text-lg sm:text-xl font-semibold">Experience</h1>
-                <p class="text-white text-xs sm:text-sm mt-2">Work, Training & Education</p>
+                <p class="text-white text-xs sm:text-sm mt-2">Education, Volunteer, Training and Work Experiences</p>
             </div>
 
             @php

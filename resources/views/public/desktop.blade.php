@@ -83,12 +83,14 @@
 
     <div
         class="fixed bottom-0 left-0 w-full bg-gray-300 border-t border-gray-400 p-[2px] flex items-center h-[30px] shadow-inner z-20">
-
-        <button class="button h-full px-2 mx-1 flex items-center gap-2">
-            <img src="https://github.com/SLAVUSworks/HL-Web-ICON/blob/master/slavusworks.png?raw=true" alt="Start"
-                class="h-5 w-5" />
-            <span class="text-sm font-bold">SLAVUSworks</span>
-        </button>
+        
+        <a href="{{ route('desktop') }}">
+            <button class="button h-full px-2 mx-1 flex items-center gap-2">
+                <img src="https://github.com/SLAVUSworks/HL-Web-ICON/blob/master/slavusworks.png?raw=true" alt="Start"
+                    class="h-5 w-5" />
+                <span class="text-sm font-bold">Start</span>
+            </button>
+        </a>
 
         <div class="h-[60%] w-px bg-gray-500 mx-1"></div>
 
